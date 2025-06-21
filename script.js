@@ -1,11 +1,12 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+function calculateTotal() {
+	const pricecells = document.querySelectorAll(".price");
+	let total = 0;
 
-const getSum = () => {
-//Add your code here
-  
-};
+	pricecells.forEach(cell => {
+		const value = parseFloat(cell.textContent.trim());
+		if (!isNaN(value)) total += value;
+	});
 
-getSumBtn.addEventListener("click", getSum);
-
+	const ansElement = document.getElementById("ans");
+	ansElement.textContent = total;
+}
